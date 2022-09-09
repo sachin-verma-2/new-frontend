@@ -15,6 +15,7 @@ import Employees from '../src/Pages/Admin/Navbar/Employee'
 import MyJobs from '../src/Pages/Admin/Navbar/MyJobs'
 import Profileadmin from './Pages/Admin/Navbar/Profileadmin'
 import AdminNav from './Pages/Admin/Navbar/AdminNav';
+import ViewJobPosted from '../src/Pages/Admin/Navbar/MyJobs';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         <Route path='/admindashboard' element={<Home />} />
         <Route path='/addjobs' element={<AddJobs />} />
         <Route path='/applicants' element={<Employees />} />
-        <Route path='/myjobs' element={<MyJobs />} />
+        <Route path='/myjobs' element={<ViewJobPosted></ViewJobPosted>} />
         <Route path='/profileadmin' element={<Profileadmin />} />
 
 

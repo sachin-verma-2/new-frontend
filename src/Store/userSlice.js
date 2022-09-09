@@ -135,6 +135,12 @@ const userSlice = createSlice({
             const x=[...state.jobdata].sort((a,b)=>new Date(a.deadline)-new Date(b.deadline))
             state.sorted.push(...x)
 
+        },apply:(state,action)=>
+        {
+            console.log('hey there')
+            state.applied.push(action.payload.data)
+            // state.applied=[...state.applied,action.payload.data]
+            console.log(current(state.applied))
         }
 
         // remove(state,action){
@@ -155,5 +161,5 @@ const userSlice = createSlice({
     }
 })
 
-export const{login,logout,sorting,sortdate} = userSlice.actions;
+export const{login,logout,sorting,sortdate,apply} = userSlice.actions;
 export default userSlice.reducer; 

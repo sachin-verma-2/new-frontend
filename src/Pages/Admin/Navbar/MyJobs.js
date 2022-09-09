@@ -1,130 +1,145 @@
-import React, { Component } from "react";
-import axios from "axios";
-import SingleJob from "../ViewSingleJob";
-import { confirmDelete } from "../utils/Helpers";
-import { apiPath } from "../utils/Consts";
-import Loader from "../Loader";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AdminNav from "./AdminNav";
+import * as ReactBootstrap from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
+import './Employee.css'
+import { Link } from 'react-router-dom'
 
-class ViewJobPosted extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      jobs: [],
-      isLoading: true,
-    };
+const ViewJobPosted = () => {
+  const [classdesc, setclassdesc] = useState("btn-warning")
+  const Applicant = [{
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  },
+  {
+    title: "React",
+    description: "developer",
+    organization: "GL",
+    location: "Noida",
+    date: "2/2/2",
+    salary: 2000,
+    keywords: "react",
+    rating: "5"
+  }]
+  // const item=useSelector((state)=>state.cart)
+  const dispatch = useDispatch();
+  const handleJobUpdate=(id)=>{
+    alert("Indide Update",id)
   }
-
-  componentDidMount() {
-    if (this.state.isLoading) {
-
-      axios
-        .get(apiPath + "/employer/view-posted-jobs")
-        .then((response) => {
-          if (response.data.resp === 1) {
-            console.log(response);
-            this.setState({ jobs: response.data.jobs, isLoading: false });
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+  const handleJobDelete=(id)=>{
+    alert("Indide Delete",id)
   }
-
-  deleteJob = (id) => {
-    let confirm = confirmDelete();
-    if(confirm){
-
-    axios
-      .delete(`${apiPath}/employer/delete-job/${id}`)
-      .then((response) => {
-        console.log(response);
-        if (response.data.resp === 1) {
-          //throw alert
-          alert("Successfully Deleted");
-          //update state
-          let jobs = this.state.jobs.filter((item) => item.id !== id);
-
-          console.log(jobs);
-          this.setState({
-            jobs: jobs,
-          });
-          console.log(this.state);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
-
-  }
-
-  render() {
+  const renderItem = (item, index) => {
     return (
-      <div>
-        <AdminNav></AdminNav>
-      <div
-        className="job-applied-wrapper table-responsive-md"
-        id="view-job-posted"
-      >
-        {this.state.isLoading && (
-          <Loader />
-        )}
-
-        {!this.state.isLoading && (
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>S.N</th>
-                <th>Job Title</th>
-                <th>Category</th>
-                <th>Expiry Date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.jobs.length ? (
-                this.state.jobs.map((item, index) => {
-                  return (
-                    <tr key={index++}>
-                      <th>{index}</th>
-                      <td>{item.title}</td>
-                      <td>{item.category}</td>
-                      <td>
-                       {item.expiry_date}
-                      </td>
-                      <td>
-                        <SingleJob divId={`singlejob${index}`} job={item} />
-                        {"  "}
-                        <a
-                          href="#deletejob"
-                          className="btn btn-danger btn-xs"
-                          data-toggle="tooltip"
-                          title="Remove Job"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            this.deleteJob(item.id);
-                          }}
-                        >
-                          <i className="fas fa-trash"></i>
-                        </a>
-                      </td>
-                    </tr>
-                  );
-                })
-              ) : (
-                <tr>
-                  <td colSpan="5">No jobs posted yet</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        )}
-      </div>
-      </div>
-    );
+      <Card className="cardstyle" key={index}>
+        <Card.Body>
+          <Card.Header><h2><b>Title:</b>{  item.title}</h2></Card.Header>
+          
+          <Card.Text>
+            <h5><b>Organization: </b>{  item.organization}</h5>
+            <h5><b>Location: </b>{  item.location}</h5>
+            <h5><b>Date: </b>{  item.date}</h5>
+            <h5><b>Salary: </b>{  item.salary}</h5>
+            <h4><b>Rating: </b>{  item.rating}</h4>
+            <h5><b>Description: </b>{  item.description}</h5>
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <ReactBootstrap.Button className="btn-warning" onClick={()=>{handleJobUpdate(index)}}>Update</ReactBootstrap.Button>
+          <ReactBootstrap.Button className="btn-danger" onClick={()=>{handleJobDelete(index)}} style={{marginLeft: '0.3rem'} }>Delete</ReactBootstrap.Button>
+        </Card.Footer>
+      </Card>
+    )
   }
+  return (
+    <div>
+      <AdminNav />
+      <h1 className='navbrand'>My Jobs</h1>
+      <Link to='/addjobs'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add New</ReactBootstrap.Button></Link>
+      <div className="cardblockstyle">
+        {
+          Applicant.map(renderItem)
+        }
+      </div>
+    </div>
+  )
 }
 
 export default ViewJobPosted;

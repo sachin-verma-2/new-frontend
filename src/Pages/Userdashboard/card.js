@@ -1,16 +1,38 @@
 import { useState } from "react"
+import axios from"axios"
+
 const Card=(props)=>
-{
+{ 
     //console.log(props.val2)
     console.log(props.value)
+    const [status, setStatus] = useState(false);
+ 
+ const handleApply  = (itemid) => {
+    console.log(status);
+    const userId = localStorage.getItem('userId');
+    axios.post('http://localhost:9000/apply',{itemid,userId})
+    .then(response => {
+        console.log(response)
+        console.log(response.data);
+        setStatus(true)
+    }).catch((e)=>console.log(e))
+    alert("Job applied Successfully")
+}
+ 
+    const handlesaved  = (itemid) => {
+        console.log(status);
+        const userId = localStorage.getItem('userId');
+        axios.post('http://localhost:9000/saved',{itemid,userId})
+        .then(response => {
+            console.log(response)
+            console.log(response.data);
+            setStatus(true)
+        }).catch((e)=>console.log(e))
+        alert("Job saved Successfully")
 
- const handleApply=(itemid)=>{
-    const temp=[...props.value]
-    const obj=temp.find((item)=>item.id===itemid)
-    obj.status=true
-    console.log(obj)
+        
     
- }
+} 
     return(
         <div>
             {props.value.filter((val)=>{
@@ -27,7 +49,9 @@ const Card=(props)=>
                     <h6 class="card-subtitle mb-2 text-muted">Role: {item.jobType}</h6>
                     <p class="card-text">Salary: {item.salary} per month</p>
                     <p class="card-text">Duration: {item.duration} months </p>
-                    <button className="btn btn-primary" onClick={(e)=>handleApply(item.id)}>Apply</button>
+                    <button className="btn btn-primary" onClick={()=>handleApply(item._id)}>Apply</button>
+                    <button className="btn btn-primary" onClick={()=>handlesaved(item._id)}>save for later</button>
+
                     </div>
                     </div>
                     </div>

@@ -4,7 +4,7 @@ import Carousel from 'better-react-carousel'
 import Navbar from '../Components/Navbar';
 import "../CSS/Search.css"
 import Footer from '../Components/Footer';
-
+import "../CSS/MainPage.css"
 const MainPage = () => {
   const{jobdata}=useSelector((state)=>state.login.jobdata)
   const[search,setsearch]=useState('')
@@ -31,11 +31,8 @@ const MainPage = () => {
     <div class="container"> <div class="search"> <div class="row"> <div class="col-md-6"> <div class="search-1"> <i class='bx bx-search-alt'></i> <input type="text" placeholder="Search by Place"/> </div> </div> <div class="col-md-6"> <div> <div class="search-2"> <i class='bx bxs-map' ></i> <input type="text" placeholder="Search by Name" /> <button onChange={(e)=>searchitem(e)}>Search</button> </div> </div> </div> </div> </div>
 </div>
 <Footer></Footer>
+</div>
 
-
-
-
-    </div>
   )
   }
 export default MainPage
