@@ -23,7 +23,7 @@ const AdminNav=()=>{
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Link to='/' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>Home</Link>
+            <Link to='/admindashboard' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>Home</Link>
             <Link to='/addjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>Add Jobs</Link>
             <Link to='/myjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>My Jobs</Link>
             <Link to='/Applicants' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>View Job Applicants</Link>
