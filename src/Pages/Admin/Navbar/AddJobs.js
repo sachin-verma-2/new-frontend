@@ -44,11 +44,15 @@ class PostNewJob extends Component {
 
   handleSubmit = () => {
     removeError();
-
-    axios
-      .post(apiPath + "/employer/post-new-job", {
-        ...this.state,
-      })
+    // console.log("this.state in handlesubnmit spread",...this.state);
+    console.log("this.state in handlesubnmit",this.state);
+      // axios
+      // .post(apiPath + "/employer/post-new-job", {
+      //   ...this.state,
+      // })
+      const job = this.state;
+      const userId = localStorage.getItem('userId');
+      axios.post('http://localhost:9000/postJobs',{job,userId})
       .then((response) => {
         if (response.data.resp === 1) {
           //show success message
