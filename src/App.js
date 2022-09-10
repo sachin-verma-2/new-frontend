@@ -12,6 +12,7 @@ import Admin from '../src/Pages/Admin/Admin'
 import Home from '../src/Pages/Admin/Navbar/Home'
 import AddJobs from '../src/Pages/Admin/Navbar/AddJobs'
 import Employees from '../src/Pages/Admin/Navbar/Employee'
+import UpdateJobs from './Pages/Admin/Navbar/UpdateJobs';
 import MyJobs from '../src/Pages/Admin/Navbar/MyJobs'
 import Profileadmin from './Pages/Admin/Navbar/Profileadmin'
 import AdminNav from './Pages/Admin/Navbar/AdminNav';
@@ -33,6 +34,7 @@ function App() {
         <Route path='/addjobs' element={<AddJobs />} />
         <Route path='/applicants' element={<Employees />} />
         <Route path='/myjobs' element={<ViewJobPosted></ViewJobPosted>} />
+        <Route path='/updatejobs/:id' element={<UpdateJobs/>}/>
         <Route path='/profileadmin' element={<Profileadmin />} />
 
 

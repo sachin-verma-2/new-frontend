@@ -6,6 +6,7 @@ import Home from './Navbar/Home'
 import MyJobs from './Navbar/MyJobs'
 import Profile from './Navbar/Profileadmin'
 import AdminNav from './Navbar/AdminNav'
+import UpdateJobs from './Navbar/UpdateJobs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 const Admin = () => {
     return (
@@ -18,6 +19,7 @@ const Admin = () => {
                     <Route path='/applicants' element={<Employees />} />
                     <Route path='/myjobs' element={<MyJobs />} />
                     <Route path='/profile' element={<Profile />} />
+                    <Route path='/updatejobs/:id' element={<UpdateJobs/>}/>
                 </Routes>
             </Router>
         </div>
