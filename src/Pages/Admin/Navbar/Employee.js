@@ -23,7 +23,7 @@ function ViewJobApplicant() {
     console.log("reject button clicked");
   }
   return (
-    <div>
+    <div style={{marginTop:"8rem"}}>
       <AdminNav />
       <h1>Applications</h1>
 

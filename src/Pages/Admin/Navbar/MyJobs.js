@@ -42,8 +42,8 @@ const ViewJobPosted = () => {
           <Card.Title><h4><b>Job Title</b></h4></Card.Title>
           <Card.Subtitle><h5>{item.title}</h5></Card.Subtitle>
         </Card.Header>
-        <Card.Body>
-          <Table style={{ margin: "0px" }}>
+        <Card.Body className="bg-dark" style={{padding:"0px"}}>
+          <Table striped variant="dark" style={{ margin: "0px" }}>
             <tbody>
               <tr>
                 <td><b>Skillsets: </b>{item.skillsets}</td>
@@ -82,7 +82,7 @@ const ViewJobPosted = () => {
   //   return <h2>LOADING....</h2>
   // }
   return (
-    <div>
+    <div style={{marginTop:"8rem"}}>
       <AdminNav />
       <h1 className='navbrand'>My Jobs</h1>
       <Link to='/addjobs'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add New</ReactBootstrap.Button></Link>

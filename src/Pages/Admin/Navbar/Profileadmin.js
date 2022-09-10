@@ -138,7 +138,7 @@ class EditCompanyProfile extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{marginTop:"8rem"}}>
         <AdminNav></AdminNav>
       <div
         className="job-applied-wrapper table-responsive-md"
