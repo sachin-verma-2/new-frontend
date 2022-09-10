@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import AdminNav from './AdminNav'
-import { useLocation } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 import { Form } from 'react-bootstrap'
 const UpdateJobs = (props) => {
-    const location = useLocation();
     const {title, setTitle}=useState()
     const {maxApplicant, setMaxApplicant}=useState()
     const {maxPositions, setMaxPositions}=useState()
@@ -30,35 +28,35 @@ const UpdateJobs = (props) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control defaultValue={title} onChange={(e)=>{setTitle(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={title} onChange={(e)=>{setTitle(e.target.value)}} placeholder="Enter Title" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Max Applicant</Form.Label>
-                    <Form.Control defaultValue={maxApplicant} onChange={(e)=>{setMaxApplicant(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={maxApplicant} onChange={(e)=>{setMaxApplicant(e.target.value)}} placeholder="Enter Max Applicant" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Max Positions</Form.Label>
-                    <Form.Control defaultValue={maxPositions} onChange={(e)=>{setMaxPositions(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={maxPositions} onChange={(e)=>{setMaxPositions(e.target.value)}} placeholder="Enter Max Positions" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Deadline</Form.Label>
-                    <Form.Control defaultValue={deadline} onChange={(e)=>{setDeadline(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={deadline} onChange={(e)=>{setDeadline(e.target.value)}} placeholder="Enter Deadline" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Skill Sets</Form.Label>
-                    <Form.Control defaultValue={skillsets} onChange={(e)=>{setSkillsets(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={skillsets} onChange={(e)=>{setSkillsets(e.target.value)}} placeholder="Enter Skill Sets" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Job Type</Form.Label>
-                    <Form.Control defaultValue={jobType} onChange={(e)=>{setJobType(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={jobType} onChange={(e)=>{setJobType(e.target.value)}} placeholder="Enter Job Type" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Duration</Form.Label>
-                    <Form.Control defaultValue={duration} onChange={(e)=>{setDuration(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={duration} onChange={(e)=>{setDuration(e.target.value)}} placeholder="Enter Duration" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Salary</Form.Label>
-                    <Form.Control defaultValue={salary} onChange={(e)=>{setSalary(e.target.value)}} placeholder="Disabled input" />
+                    <Form.Control defaultValue={salary} onChange={(e)=>{setSalary(e.target.value)}} placeholder="Enter Salary" />
                 </Form.Group>
                 <Button type='submit'>Update</Button>
             </Form>

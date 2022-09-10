@@ -6,108 +6,21 @@ import * as ReactBootstrap from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import './Employee.css'
 import { Link, useNavigate } from 'react-router-dom'
-
+import axios from "axios";
+//http://localhost:9000/dashboard
+//user: http://localhost:9000/user
 const ViewJobPosted = () => {
-  const [classdesc, setclassdesc] = useState("btn-warning")
-  const Applicant = [{
-    id: "631878a1a651",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a652",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a653",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a654",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a655",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a656",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a657",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a658",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  },
-  {
-    id: "631878a1a659",
-    title: "Software Development Intern",
-    skillsets: "c, c++",
-    maxposition: 1,
-    maxapplicants: 5,
-    jobtype: "internship",
-    salary: 4000,
-    duration: 7,
-    deadline: "2021-02-22T18:17:24.5192"
-  }]
+  const [jobData, setJobData] = useState([])
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const Jobs = await axios.get("http://localhost:9000/dashboard")
+      const job = await Jobs.data;
+      console.log("Jobs", job)
+      setJobData(job)
+    }
+    fetchJobs();
+  }, [])
+
   // const dispatch = useDispatch();
   // const { data: jobsData, status } = useSelector((state) => state.jobs)
   // useEffect(()=>{
@@ -126,48 +39,41 @@ const ViewJobPosted = () => {
     return (
       <Card className="cardstyle" key={index}>
         <Card.Header>
-            <Card.Title><h4><b>Job Title</b></h4></Card.Title>
-            <Card.Subtitle><h5>{item.title}</h5></Card.Subtitle>
-          </Card.Header>
+          <Card.Title><h4><b>Job Title</b></h4></Card.Title>
+          <Card.Subtitle><h5>{item.title}</h5></Card.Subtitle>
+        </Card.Header>
         <Card.Body>
-            <Table style={{margin:"0px"}}>
-              <tbody>
+          <Table style={{ margin: "0px" }}>
+            <tbody>
               <tr>
-                <td><b>Skillsets: </b></td>
-                <td>{item.skillsets}</td>
+                <td><b>Skillsets: </b>{item.skillsets}</td>
               </tr>
               <tr>
-                <td><b>Maxposition: </b></td>
-                <td>{item.maxposition}</td>
+                <td><b>Maxposition: </b>{item.maxPositions}</td>
               </tr>
               <tr>
-                <td><b>Maxapplicants: </b></td>
-                <td>{item.maxapplicants}</td>
+                <td><b>Maxapplicants: </b>{item.maxApplicants}</td>
               </tr>
               <tr>
-                <td><b>Salary: </b></td>
-                <td>{item.salary}</td>
+                <td><b>Salary: </b>{item.salary}</td>
               </tr>
               <tr>
-                <td><b>Jobtype: </b></td>
-                <td>{item.jobtype}</td>
+                <td><b>Jobtype: </b>{item.jobType}</td>
               </tr>
               <tr>
-                <td><b>Duration: </b></td>
-                <td>{item.duration}</td>
+                <td><b>Duration(in months): </b>{item.duration}</td>
               </tr>
               <tr>
-                <td><b>Deadline: </b></td>
-                <td>{item.deadline}</td>
+                <td><b>Deadline: </b>{item.deadline}</td>
               </tr>
-              </tbody>
-            </Table>
+            </tbody>
+          </Table>
         </Card.Body>
         <Card.Footer>
-          <Link to={"/updatejobs/" + item.id}>
+          <Link to={"/updatejobs/" + item._id}>
             <ReactBootstrap.Button className="btn-warning btnstyle1">Update</ReactBootstrap.Button>
           </Link>
-          <ReactBootstrap.Button className="btn-danger btnstyle2" onClick={() => { handleJobDelete(index) }} style={{ marginLeft: '0.3rem' }}>Delete</ReactBootstrap.Button>
+          <ReactBootstrap.Button className="btn-danger btnstyle2" onClick={() => { handleJobDelete(item._id) }} style={{ marginLeft: '0.3rem' }}>Delete</ReactBootstrap.Button>
         </Card.Footer>
       </Card>
     )
@@ -182,7 +88,7 @@ const ViewJobPosted = () => {
       <Link to='/addjobs'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add New</ReactBootstrap.Button></Link>
       <div className="cardblockstyle">
         {
-          Applicant.map(renderItem)
+          jobData.map(renderItem)
         }
       </div>
     </div>
