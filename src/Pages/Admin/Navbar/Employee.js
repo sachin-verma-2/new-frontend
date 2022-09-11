@@ -6,14 +6,12 @@ import AdminNav from "./AdminNav";
 import { useDispatch, useSelector } from "react-redux";
 import * as ReactBootstrap from 'react-bootstrap'
 import './Employee.css'
+import  FileDownload  from "js-file-download"
 
 function ViewJobApplicant() {
   const Applicant=[{
   }]
-  const handleResume = (e) => {
-    e.preventDefault();
-    console.log("resume button clicked");
-  }
+  
   const handleShortlist = (e) => {
     e.preventDefault();
     console.log("shortlist button clicked");
@@ -22,6 +20,21 @@ function ViewJobApplicant() {
     e.preventDefault();
     console.log("reject button clicked");
   }
+  const handleResume = (e) => {
+    e.preventDefault()
+   axios('http://localhost:9000/download', {
+      method: "GET",
+      responseType: "blob",
+    })
+      .then((response) => {
+        FileDownload(response.data,"Resume.pdf")
+      })
+      .catch((error) => {
+        console.log(error);
+        
+      });
+  
+};
   return (
     <div>
       <AdminNav />

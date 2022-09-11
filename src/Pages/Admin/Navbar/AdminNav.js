@@ -15,7 +15,7 @@ const AdminNav=()=>{
   return (
     <Navbar bg="dark" variant='dark' expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#"><h1>Find Job</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -23,12 +23,12 @@ const AdminNav=()=>{
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Link to='/admindashboard' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>Home</Link>
-            <Link to='/addjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>Add Jobs</Link>
-            <Link to='/myjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>My Jobs</Link>
-            <Link to='/Applicants' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>View Job Applicants</Link>
-            <Link to='/profileadmin' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}>Edit Profile</Link>
-            <i className='fa fa-sign-out 'style={{textDecoration: 'none', color:"white", margin:'0.5rem'}} onClick={logoutMethod} >Logout</i>
+            <Link to='/admindashboard' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>Home</h4></Link>
+            <Link to='/addjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>Add Jobs</h4></Link>
+            <Link to='/myjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>My Jobs</h4></Link>
+            <Link to='/Applicants' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>View Job Applicants</h4></Link>
+            <Link to='/profileadmin' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>Profile</h4></Link>
+            <i className='fa fa-sign-out 'style={{textDecoration: 'none', color:"white", margin:'0.5rem'}} onClick={logoutMethod} ><h4 className='nav-icon'>Logout</h4></i>
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">

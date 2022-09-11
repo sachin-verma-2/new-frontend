@@ -16,7 +16,10 @@ import MyJobs from '../src/Pages/Admin/Navbar/MyJobs'
 import Profileadmin from './Pages/Admin/Navbar/Profileadmin'
 import AdminNav from './Pages/Admin/Navbar/AdminNav';
 import ViewJobPosted from '../src/Pages/Admin/Navbar/MyJobs';
-
+import ResumeUpload from './Pages/Userdashboard/ResumeUpload';
+import AdminDashboard from './Pages/Admin/Navbar/AdminDashboard';
+import UpdateJobs from './Pages/Admin/Navbar/UpdateJobs';
+import Wishlist from './Pages/Userdashboard/Wishlist';
 
 function App() {
   return (
@@ -29,11 +32,14 @@ function App() {
         <Route path="/userdashboard" element={<Userdashboard></Userdashboard>}></Route> 
         <Route path='/application' element={<Application></Application>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route> 
-        <Route path='/admindashboard' element={<Home />} />
+        <Route path='/admindashboard' element={<AdminDashboard/>} />
         <Route path='/addjobs' element={<AddJobs />} />
         <Route path='/applicants' element={<Employees />} />
         <Route path='/myjobs' element={<ViewJobPosted></ViewJobPosted>} />
         <Route path='/profileadmin' element={<Profileadmin />} />
+        <Route path="/resume" element={<ResumeUpload></ResumeUpload>}></Route>
+        <Route path='/updatejobs/:id' element={<UpdateJobs/>}/>
+        <Route path='/wishlist' element={<Wishlist />} />
 
 
 

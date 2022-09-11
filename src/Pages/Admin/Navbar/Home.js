@@ -28,7 +28,7 @@ const handleReject=(e)=>{
           <h2 className='d-flex m-1 p-1'>skills</h2>
         </div>
         <div className='col-3 bg-dark'>
-          <button onClick={(e) => handleResume(e)} style={{ width: '93%', height: '48%' }} className='my-2 p-3 btn btn-primary'>Download Resume</button>
+          
           <div className='h-50'>
             <button onClick={(e) => handleShortlist(e)} style={{ width: '45%', height: '86%' }} className='my-2 mx-1 p-3 btn btn-success'>Shortlist</button>
             <button onClick={(e) => handleReject(e)} style={{ width: '45%', height: '86%' }} className='my-2 mx-1 p-3 btn btn-danger'>Reject</button>

@@ -1,25 +1,40 @@
-nav{
-    padding: 1%;
-    background-color: black;
-    color: aliceblue;
+*{
+padding: 0;
+margin:0;
+box-sizing: border-box;
 }
-.head{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.navbar-brand{
+  font-size:4rem;
+  color: red;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.right{
-    flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.btn-0{
+  height:52px;
+  width:80px;
+  
+  color: white;
+  cursor:pointer;
+  
+  background-color: red;
 }
-.nav-login{
-    font-size: 20px;
-  cursor: pointer;
-  margin-left: 25px;
-  color:white;
-  text-decoration:none;
+.btn-0:hover{
+  background-color:blue;
 }
-.link-nav{
-    text-decoration: none;
-    color: inherit;
+.btn-1{
+  padding-left: 3%;
+  height:52px;
+  width:80px;
+  
+  color: white;
+  cursor:pointer;
+
+  background-color:green;
+}
+.btn-1:hover{
+  background-color:blue;
+}
+.login-link{
+  text-decoration: none;
+  color: inherit;
+  font-size: large;
 }

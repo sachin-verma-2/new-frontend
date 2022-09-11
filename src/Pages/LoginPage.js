@@ -10,6 +10,7 @@ import {useDispatch} from 'react-redux';
 // import { add } from "../store/nameSlice";
 import {login,logout} from '../Store/userSlice';
 import { fetchData } from "../Store/userSlice";
+import Navbar from "../Components/Navbar";
 function LoginPage(){
 
     const dispatch = useDispatch();
@@ -88,8 +89,8 @@ function LoginPage(){
       });
     }
     return(
-     
-      
+     <>
+      <Navbar></Navbar>
 
 
       <div className="register-photo">
@@ -111,7 +112,7 @@ SignUp here.</Link> </a>
 </form>
 </div>
 </div> 
-     
+   </>  
 
   )
 }

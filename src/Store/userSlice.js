@@ -20,6 +20,20 @@ export const fetchData=createAsyncThunk('/pages/fetchData',async ()=>{
     }
 })
 
+export const fetchSavedData=createAsyncThunk('/pages/fetchSavedData',async ()=>{
+    try{
+        const result=await axios.get('http://localhost:9000/user')
+        console.log('inside saved')
+        console.log(result.data)
+        return result.data
+
+    }
+    catch(e)
+    {
+        console.log(e)
+    }
+})
+
 
 const userSlice = createSlice({
     name:'login',
@@ -28,7 +42,10 @@ const userSlice = createSlice({
         status:false,
         name:'User',
         jobdata:[],
-        sorted:[]
+        sorted:[],
+        user:[],    
+        saving:[],
+        applied:[]
     },
     reducers:{
         // add(state,action){
@@ -135,6 +152,52 @@ const userSlice = createSlice({
             const x=[...state.jobdata].sort((a,b)=>new Date(a.deadline)-new Date(b.deadline))
             state.sorted.push(...x)
 
+        },apply:(state,action)=>
+        {
+            console.log('hey there')
+            state.applied.push(action.payload.data)
+            // state.applied=[...state.applied,action.payload.data]
+            console.log(current(state.applied))
+        },
+        listed:(state,action)=>
+        {
+            // state.list=[]
+            console.log('inside list')
+            console.log(action.payload)
+            state.list=[...action.payload.data]
+            console.log(state.list)
+        },
+        saved:(state,action)=>
+        {
+            console.log('inside saving')
+            console.log(action.payload)
+
+  const a=action.payload.newdb.find((item)=>item._id===action.payload.data)
+//   console.log(current(a.saved))
+if(a)
+{
+  const b=a.saved
+  let unique=[...new Map(b.map((item)=>[item["_id"],item])).values()]
+  state.saving=[]
+  state.saving=[...state.saving,...unique]
+}
+
+
+        },
+        appliedfun:(state,action)=>
+        {
+            console.log(action.payload)
+            // const a=state.user.find((item)=>item._id===action.payload.data)
+            const a=action.payload.newdb.find((item)=>item._id===action.payload.data)
+            if(a)
+            {
+                const b=a.applied
+                let unique=[...new Map(b.map((item)=>[item["_id"],item])).values()]
+                state.applied=[]
+                state.applied=[...state.applied,...unique]
+
+            }
+
         }
 
         // remove(state,action){
@@ -151,9 +214,19 @@ const userSlice = createSlice({
             // state.value.loading=false;
             // state.value.userdata=[...state.value.userdata,...action.payload]
             // console.log(state.value.userdata.length)
+        },
+        [fetchSavedData.fulfilled]:(state,action)=>
+        {
+            console.log("fulfilled",...action.payload)
+            // state.user=[...state.user,...action.payload]
+            state.user=[]
+            state.user.push(...action.payload)
+            // state.user=[...state.user,...action.payload]
+
+            console.log(state.user)
         }
     }
 })
 
-export const{login,logout,sorting,sortdate} = userSlice.actions;
+export const{login,logout,sorting,sortdate,apply,listed,saved,appliedfun} = userSlice.actions;
 export default userSlice.reducer; 

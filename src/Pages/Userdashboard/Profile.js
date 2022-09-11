@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import Navi from './nav';
 import Message from './Message';
 import Progress from './Progress';
+import "../../CSS/Profile.css"
 const Profile = () => {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
@@ -63,56 +64,28 @@ const Profile = () => {
         })
           
       }
-  const [file, setFile] = useState('');
-  const [filename, setFilename] = useState('Choose File');
-  const [uploadedFile, setUploadedFile] = useState({});
-  const [message, setMessage] = useState('');
-  const [uploadPercentage, setUploadPercentage] = useState(0);
 
-  const onChange = e => {
-    setFile(e.target.files[0]);
-    setFilename(e.target.files[0].name);
-  };
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      const res = await axios.post('http://localhost:9000/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-       
-      });
-      
+  
       
 
-      const { fileName, filePath } = res.data;
-
-      setUploadedFile({ fileName, filePath });
-
       
-    } catch (err) {
-      if (err.response.status === 500) {
-        setMessage('There was a problem with the server');
-      } else {
-        setMessage(err.response.data.msg);
-      }
-      
-    }
-  };
   return (
     <div>
         <Navi></Navi>
+        
+
+        <div className='profile'>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRirwS2Xnyyx82LGHih1piRTO2GcIDaNyJtncqyUS4nCQ&s" class="float-left"/>
 <h2>Profile Details</h2>
 <h3>Name : {name}</h3>
 <h3>Email: {email}</h3>
+
 {
     showUpdate?
-
-        <form>
+    
+        
+        <form className='border border-danger form-profile'>
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={(e)=>handleChange(e,'name')}/>
@@ -125,42 +98,17 @@ const Profile = () => {
   
 <label class="form-label" for="customFile">Upload Profile Picture</label>
 <input type="file" class="form-control" id="customFile" onChange={(e)=>handleChange(e,profile)}/>
-{message ? <Message msg={message} /> : null}
-      <form onSubmit={onSubmit}>
-      <label class="form-label" for="customFile">Upload Resume</label>
-     <input type="file" class="form-control" id="customFile" onChange={onChange}/>
-        
-          <label className='custom-file-label' htmlFor='customFile'>
-            {filename}
-          </label>
-        
 
-        <Progress percentage={uploadPercentage} />
-
-        <input
-          type='submit'
-          value='Upload'
-          className='btn btn-primary btn-block mt-4'
-        />
-      </form>
-      {uploadedFile ? (
-        <div className='row mt-5'>
-          <div className='col-md-6 m-auto'>
-            <h3 className='text-center'>{uploadedFile.fileName}</h3>
-            <img style={{ width: '100%' }} src={uploadedFile.filePath} alt='' />
-          </div>
-        </div>
-      ) : null}
-  
   <button type="submit" className="m-2 btn btn-primary" onClick={(e)=>handleSubmit(e)}>Submit</button>
   <button type="submit" className="m-2 btn btn-danger" onClick={(e)=>setShowUpdate(false)}>Cancel</button>
 </form>
 :<div>
     <button type="submit" class="btn btn-primary" onClick={(e)=>setShowUpdate(true)}>Update</button>
 </div>
+
 }
       </div>
- 
+ </div>
    
   )
 }

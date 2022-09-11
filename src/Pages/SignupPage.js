@@ -3,6 +3,7 @@ import "../CSS/SignupPage.css"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../Components/Navbar";
 function SignupPage(){
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
@@ -74,6 +75,8 @@ function SignupPage(){
       });
     }
     return(
+      <>
+      <Navbar></Navbar>
         <div class="register-photo">
 <div class="form-container">
 <div class="image-holder"></div>
@@ -113,7 +116,8 @@ onBlur={WarningPhone} onChange={(e)=>setPhone(e.target.value)}></input>
 Login here.</Link> </a>
 </form>
 </div>
-</div> 
+</div>
+</> 
         
     )
 }
