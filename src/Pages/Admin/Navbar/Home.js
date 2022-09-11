@@ -1,11 +1,8 @@
 import React from 'react'
 import AdminNav from './AdminNav';
-  
+
 const Applications = () => {
-  const handleResume=(e)=>{
-    e.preventDefault();
-    console.log("resume button clicked");
-}
+  
 const handleShortlist=(e)=>{
     e.preventDefault();
     console.log("shortlist button clicked");
@@ -14,6 +11,7 @@ const handleReject=(e)=>{
     e.preventDefault();
     console.log("reject button clicked");
 }
+
   return (
     <div>
       <AdminNav></AdminNav> <h1>Applications</h1>
