@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 import axios from"axios"
-
+import "../../CSS/card.css"
 
 
 const Card=(props)=>
@@ -47,8 +47,8 @@ const Card=(props)=>
             }).map((item)=>
                 (
                     <div class="col-sm-6">
-                    <div class="card colour">
-                <div class="card-body">
+                    <div class="card-colour background">
+                <div class="card-body ">
                   
                 <h3 class="card-subtitle mb-2 text-muted">{item.title}</h3>
                 <h4 class="card-subtitle mb-2 text-muted">Role: {item.jobType}</h4>

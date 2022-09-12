@@ -20,7 +20,9 @@ import ResumeUpload from './Pages/Userdashboard/ResumeUpload';
 import AdminDashboard from './Pages/Admin/Navbar/AdminDashboard';
 import UpdateJobs from './Pages/Admin/Navbar/UpdateJobs';
 import Wishlist from './Pages/Userdashboard/Wishlist';
-
+import AdminProfile from './Pages/Admin/Navbar/AdminProfile';
+import ViewJobApplicant from '../src/Pages/Admin/Navbar/Employee';
+import MyEmployees from './Pages/Admin/Navbar/MyEmployee';
 function App() {
   return (
     <div className="App">
@@ -34,12 +36,13 @@ function App() {
         <Route path="/profile" element={<Profile></Profile>}></Route> 
         <Route path='/admindashboard' element={<AdminDashboard/>} />
         <Route path='/addjobs' element={<AddJobs />} />
-        <Route path='/applicants' element={<Employees />} />
+        <Route path='/applicants' element={<ViewJobApplicant/>} />
         <Route path='/myjobs' element={<ViewJobPosted></ViewJobPosted>} />
-        <Route path='/profileadmin' element={<Profileadmin />} />
         <Route path="/resume" element={<ResumeUpload></ResumeUpload>}></Route>
         <Route path='/updatejobs/:id' element={<UpdateJobs/>}/>
         <Route path='/wishlist' element={<Wishlist />} />
+        <Route path="/myEmployees" element={<MyEmployees></MyEmployees>}></Route>
+        <Route path="/adminprofile" element={<AdminProfile></AdminProfile>}></Route>
 
 
 

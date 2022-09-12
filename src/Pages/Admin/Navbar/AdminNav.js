@@ -27,7 +27,8 @@ const AdminNav=()=>{
             <Link to='/addjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>Add Jobs</h4></Link>
             <Link to='/myjobs' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>My Jobs</h4></Link>
             <Link to='/Applicants' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>View Job Applicants</h4></Link>
-            <Link to='/profileadmin' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>Profile</h4></Link>
+            <Link to='/myEmployees' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'>My Employees</h4></Link>
+            <Link to='/adminprofile' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'> Profile</h4></Link>
             <i className='fa fa-sign-out 'style={{textDecoration: 'none', color:"white", margin:'0.5rem'}} onClick={logoutMethod} ><h4 className='nav-icon'>Logout</h4></i>
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -43,15 +44,7 @@ const AdminNav=()=>{
               Link
             </Nav.Link> */}
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>

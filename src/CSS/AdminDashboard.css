@@ -4,8 +4,9 @@ height:50%;
 }
 .container-admin {
     position: relative;
-    width: 100%;
+    width: 50%;
     max-width: 400px;
+    margin-left: 35%;
   }
   
   .container-admin img {
@@ -35,4 +36,29 @@ height:50%;
 .link-admin{
     text-decoration: none;
     color: inherit;
+}
+
+.admin-colour-container{
+  background-color: #00754e;
+background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.container-admin img {
+  width: 100%;
+  height: auto;
+}
+.c-2{
+  margin-left: 35%;
+}
+.two{
+  background-color: #3e0047;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.admin-text{
+  color: azure;
+  float: left;
+}
+.text{
+  color:palevioletred
 }

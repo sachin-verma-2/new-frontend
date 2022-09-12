@@ -38,7 +38,7 @@ return(
   <div>
 
     <Navi></Navi>
-    <h2>Your wishlisted jobs</h2>
+    <h1 className='wishlist-head'>My Wishlist<i className='fa fa-heart'></i></h1>
 
     {
       saving.length===0?<div><h2>no Wishlist found</h2></div>:<div>  

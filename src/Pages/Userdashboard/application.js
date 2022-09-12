@@ -38,12 +38,12 @@ useEffect(()=>
 
 },[datab])
 
-
+ 
 return(
   <div>
     {console.log(applied)}
     <Navi></Navi>
-    <h1>applied jobs</h1>
+    <h1 className='apply-head'>Applied jobs</h1>
     {
       applied.length===0?<div><h2>no Application found</h2></div>:<div>  
     <Land value={applied} val2='applied'></Land>

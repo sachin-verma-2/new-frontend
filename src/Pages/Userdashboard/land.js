@@ -31,16 +31,18 @@ const removefun=(e,itemid)=>
         {traverse.map((item)=>
             (
                 <div>
-                <div class="card my-4">
-                <div class="card-body">
-                <h5 class="card-title">{item.title}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Role: {item.jobType}</h6>
-                <p class="card-text">Salary: {item.salary} per month</p>
-                <p class="card-text">Duration: {item.duration} months </p>
+                <div class="col-sm-6">
+                    <div class=" card-colour">
+                <div class="card-body ">
+                  
+                <h3 class="card-subtitle mb-2 text-muted">{item.title}</h3>
+                <h4 class="card-subtitle mb-2 text-muted">Role: {item.jobType}</h4>
+                              <p class="card-text">Salary: {item.salary} per month</p>
+                              <p class="card-text">Duration: {item.duration} months </p>
                 {
                     props.val2==='wishlist'?<div><button className="btn btn-primary" onClick={(e)=>removefun(e,item._id)}>Remove</button></div>:<div></div>
                 }
-                </div>
+                </div></div>
                 </div>
                 </div>
             ))
