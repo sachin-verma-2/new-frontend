@@ -3,6 +3,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 import Navi from './nav';
+import "../../CSS/ProfileUser.css"
 // import Message from './Message';
 // import Progress from './Progress';
 const Profile = () => {
@@ -165,7 +166,9 @@ const Profile = () => {
         <Navi></Navi>
 <h2>Profile Details</h2>
 <h3>Name : {initialName}</h3>
-<img src = {initialProfile} alt = "profile"></img>
+<div className='container-profile-image'>
+<img src = {initialProfile} alt = "profile" className='thumbnail profile-image'></img>
+</div>
 {/* <h3>Email: {initialEmail}</h3> */}
 {
     showUpdate?
