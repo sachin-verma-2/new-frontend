@@ -57,7 +57,7 @@ background-image: url("https://www.transparenttextures.com/patterns/60-lines.png
 }
 .admin-text{
   color: azure;
-  float: left;
+  float: left; 
 }
 .text{
   color:palevioletred
